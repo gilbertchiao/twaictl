@@ -30,7 +30,10 @@ archives:
       - LICENSE
       - README.md
 
-# Homebrew tap：需要在 repo secrets 設定 HOMEBREW_TAP_GITHUB_TOKEN（對 gilbertchiao/homebrew-tap 有 contents:write 權限）
+# Homebrew tap：需要在 repo secrets 設定 HOMEBREW_TAP_GITHUB_TOKEN（對 gilbertchiao/homebrew-tap 有 contents:write 權限）。
+# goreleaser v2.10+ 標示 brews 為 deprecated（建議改 homebrew_casks），但 cask 只支援 macOS、
+# Linux 的 Homebrew 裝不了，且使用者得改打 `brew install --cask`；本專案是跨平台 CLI，
+# 在 pinned 的 goreleaser 版本仍可用的前提下維持 formula（brews）。
 brews:
   - repository:
       owner: gilbertchiao

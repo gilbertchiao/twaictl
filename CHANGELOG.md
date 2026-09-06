@@ -4,6 +4,14 @@
 
 ## [Unreleased]
 
+## [0.3.1] - 2026-09-06
+
+### Fixed
+- release workflow 未把 `HOMEBREW_TAP_GITHUB_TOKEN` 傳給 goreleaser，`v0.3.0` 的 Homebrew formula
+  未發布；已修正，`brew install gilbertchiao/tap/twaictl` 自本版起可用。二進位內容與 `v0.3.0` 相同。
+
+## [0.3.0] - 2026-09-06
+
 > 本 repo 於 2026-09-06 以整理後的內容重新建立（單一初始 commit），`v0.3.0` 以前的開發歷史
 > 保存在作者的 private archive，不對外公開；各版本內容仍以本檔為準。
 
@@ -21,8 +29,6 @@
 - `vcs create --system-volume-type` 說明補充：flavor 的 DISK 為 0 時必填（否則 API 回 500
   `'system_volume_type'`）。見 A41。
 - Dependabot（gomod + github-actions，每月、合併 PR）；README 加 badge、安裝章節加 Homebrew tap。
-
-## [0.3.0] - 2026-09-05
 
 ### Added
 - `cos ls <bucket|cos://bucket[/prefix]> [prefix] --versions`：改呼叫 `ListObjectVersions`
@@ -353,7 +359,8 @@
 - `internal/twai`：自訂 HTTP transport（header 注入、GET 重試、`--dry-run` curl 輸出、slog debug log、secret 遮蔽）、`APIError`、各服務 client 建構。
 - 命令：`version`、`config init`、`config show`、`completion`。
 
-[Unreleased]: https://github.com/gilbertchiao/twaictl/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/gilbertchiao/twaictl/compare/v0.3.1...HEAD
+[0.3.1]: https://github.com/gilbertchiao/twaictl/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/gilbertchiao/twaictl/compare/v0.1.0...v0.3.0
 [0.1.0]: https://github.com/gilbertchiao/twaictl/compare/v0.0.1...v0.1.0
 [0.0.1]: https://github.com/gilbertchiao/twaictl/releases/tag/v0.0.1
