@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/gilbertchiao/twaictl/actions/workflows/ci.yml/badge.svg)](https://github.com/gilbertchiao/twaictl/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/gilbertchiao/twaictl)](https://github.com/gilbertchiao/twaictl/releases)
-[![License](https://img.shields.io/github/license/gilbertchiao/twaictl)](LICENSE)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
 > 本工具為社群開發的非官方（unofficial）命令列工具，與台智雲（Taiwan AI Cloud, TWAI）無任何隸屬或背書關係。
 > This is an unofficial, community-maintained CLI and is not affiliated with or endorsed by Taiwan AI Cloud (TWAI).
