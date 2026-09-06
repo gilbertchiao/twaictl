@@ -1,0 +1,11 @@
+ID:                      7
+Name:                    web-01
+Status:                  Ready
+Public IP:               203.0.113.10
+Solution:                11
+Project:                 101
+User:                    alice
+Created:                 2026-08-27 09:02:03
+Servers:                 web-01-vm(1,ACTIVE)
+Progress:                100
+Termination protection:  no

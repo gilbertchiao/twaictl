@@ -1,0 +1,14 @@
+[
+  {
+    "name": "mykey",
+    "fingerprint": "aa:bb:cc:dd:ee:ff",
+    "platform": "openstack-taichung-default-2",
+    "user": {"username": "alice", "display_name": "Alice", "email": "alice@example.com", "id": "u-1"}
+  },
+  {
+    "name": "otherkey",
+    "fingerprint": "11:22:33:44:55:66",
+    "platform": "openstack-taichung-default-2",
+    "user": {"username": "bob", "display_name": "Bob", "email": "bob@example.com", "id": "u-2"}
+  }
+]

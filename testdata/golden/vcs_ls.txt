@@ -1,0 +1,3 @@
+ID  NAME    STATUS        PUBLIC IP     HOSTNAME   CREATED
+7   web-01  Ready         203.0.113.10  web-01-vm  2026-08-27 09:02:03
+8   web-02  Initializing                web-02-vm  2026-08-27 09:05:00

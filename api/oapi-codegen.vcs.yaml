@@ -1,0 +1,8 @@
+# oapi-codegen 設定：VCS（Virtual Compute Service）
+package: vcs
+generate:
+  models: true
+  client: true
+output: internal/gen/vcs/vcs.gen.go
+output-options:
+  skip-prune: false

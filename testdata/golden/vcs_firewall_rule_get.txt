@@ -1,0 +1,11 @@
+ID:                501
+Name:              allow-ssh
+Protocol:          tcp
+Action:            allow
+Source IP:         0.0.0.0/0
+Source port:       
+Destination IP:    192.168.0.0/24
+Destination port:  22
+IP version:        4
+Created:           2026-08-28 09:02:03
+Project:           101

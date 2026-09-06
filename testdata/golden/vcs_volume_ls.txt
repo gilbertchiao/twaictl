@@ -1,0 +1,3 @@
+ID       NAME     SIZE (GB)  TYPE  STATUS     ATTACHED   BOOTABLE  CREATED
+1436398  data-01  500        hdd   in-use     web-01-vm  no        2023-02-06 08:53:47
+1436399  scratch  50         ssd   available             no        2026-08-01 08:00:00

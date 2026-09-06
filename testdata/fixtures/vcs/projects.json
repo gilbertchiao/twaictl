@@ -1,0 +1,4 @@
+[
+  {"id": 101, "name": "ENT1", "platform": "openstack-taichung-default-2", "matchLabels": ["a"], "transparent_mode": false},
+  {"id": 202, "name": "GOV2", "platform": "openstack-taichung-default-2", "matchLabels": [], "transparent_mode": true}
+]

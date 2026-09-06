@@ -1,0 +1,1 @@
+{"public":{"access_key":"AKIAPUBLIC","secret_key":"SECRETPUBLIC"},"private":[{"name":"default","access_key":"AKIAPRIV","secret_key":"SECRETPRIV"},{"name":"backup","access_key":"AKIABACKUP","secret_key":"SECRETBACKUP"}]}

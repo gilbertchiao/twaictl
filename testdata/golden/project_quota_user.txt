@@ -1,0 +1,9 @@
+USER   RESOURCE     USAGE  QUOTA
+alice  cpu          10     20
+alice  gpu          0      4
+alice  memory (MB)  4096   8192
+alice  floating_ip  1      2
+alice  static_ip    1      2
+bob    cpu          8      12
+bob    gpu          0      0
+bob    memory (MB)  2048   4096

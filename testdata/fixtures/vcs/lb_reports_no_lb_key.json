@@ -1,0 +1,11 @@
+{
+  "begin_time": "2026-07-28T02:23:34Z",
+  "end_time": "2026-08-28T02:23:34Z",
+  "projects": [
+    {
+      "name": "ENT1",
+      "summery": {"total_lb_num": 0},
+      "detail": {}
+    }
+  ]
+}

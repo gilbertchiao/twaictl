@@ -1,0 +1,16 @@
+[
+  {
+    "user": {"username": "alice", "display_name": "Alice", "email": "alice@example.com", "id": "u-1"},
+    "cpu": {"usage": 10.0, "quota": 20.0},
+    "gpu": {"usage": 0.0, "quota": 4.0},
+    "memory": {"usage": 4096.0, "quota": 8192.0},
+    "floating_ip": {"usage": 1.0, "quota": 2.0},
+    "static_ip": {"usage": 1.0, "quota": 2.0}
+  },
+  {
+    "user": {"username": "bob", "display_name": "Bob", "email": "bob@example.com", "id": "u-2"},
+    "cpu": {"usage": 8.0, "quota": 12.0},
+    "gpu": {"usage": 0.0, "quota": 0.0},
+    "memory": {"usage": 2048.0, "quota": 4096.0}
+  }
+]

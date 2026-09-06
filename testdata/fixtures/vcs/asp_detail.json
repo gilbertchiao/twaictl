@@ -1,0 +1,1 @@
+{"id": 701, "name": "web-asp", "project": 101, "description": "scale web tier", "meter_name": "cpu_util", "scaleup_threshold": 80, "scaledown_threshold": 20, "scale_max_size": 5, "platform": "openstack-taichung-default-2", "user": {"id": "1", "username": "alice", "display_name": "Alice", "email": "alice@example.com"}}

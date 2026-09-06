@@ -1,0 +1,3 @@
+Key name:    public
+Used space:  5.0 GiB
+Objects:     1234

@@ -1,0 +1,3 @@
+ID       HOSTNAME   SITE  STATUS   FLAVOR    IMAGE     PRIVATE IP  PUBLIC IP
+3658462  web-01-vm  7     ACTIVE   v.xsuper  img1base  10.2.0.6    
+3658463  db-01-vm   8     SHUTOFF  v.xsuper  img1base  10.2.0.7    

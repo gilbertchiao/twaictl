@@ -1,0 +1,5 @@
+KEY       VERSION  LATEST  TYPE           SIZE  MODIFIED
+a.txt     v1       yes     object         9 B   2024-01-01 00:00:00
+a.txt     v0       no      object         2 B   2024-01-01 00:00:00
+gone.txt  v3       yes     delete marker        2024-01-01 00:00:00
+gone.txt  v2       no      object         1 B   2024-01-01 00:00:00

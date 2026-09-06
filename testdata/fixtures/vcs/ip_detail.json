@@ -1,0 +1,9 @@
+{
+  "id": 1393847,
+  "address": "203.0.113.219",
+  "type": "STATIC",
+  "status": "AVAILABLE",
+  "desc": "",
+  "project": {"id": 101, "name": "ENT1"},
+  "create_time": "2026-08-01T00:00:00Z"
+}

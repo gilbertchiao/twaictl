@@ -1,0 +1,53 @@
+{
+  "id": 5,
+  "name": "web-lb",
+  "desc": "",
+  "status": "ACTIVE",
+  "status_reason": "",
+  "vip": "10.0.0.50",
+  "total_connections": 120,
+  "active_connections": 3,
+  "private_net": {"id": 328291, "name": "default_network"},
+  "create_time": "2026-08-28T01:02:03Z",
+  "user": {"id": "1", "username": "u", "display_name": "U", "email": "u@x"},
+  "listeners": [
+    {
+      "name": "web-lb-listener",
+      "status": "ACTIVE",
+      "protocol": "HTTP",
+      "protocol_port": 80,
+      "pool": 11,
+      "sni_container_refs": [],
+      "default_tls_container_ref": 0
+    }
+  ],
+  "pools": [
+    {
+      "id": 11,
+      "name": "web-lb-pool",
+      "status": "ACTIVE",
+      "protocol": "HTTP",
+      "method": "ROUND_ROBIN",
+      "monitor": {
+        "monitor_type": "HTTP",
+        "delay": 5,
+        "timeout": 3,
+        "max_retries": 3,
+        "http_method": "GET",
+        "url_path": "/",
+        "expected_codes": "200"
+      },
+      "members": [
+        {"ip": "10.0.0.11", "port": 80, "weight": 1, "status": "ACTIVE"},
+        {"ip": "10.0.0.12", "port": 80, "weight": 1, "status": "ERROR"}
+      ]
+    },
+    {
+      "id": 12,
+      "name": "web-lb-pool2",
+      "status": "ACTIVE",
+      "protocol": "TCP",
+      "method": "SOURCE_IP"
+    }
+  ]
+}

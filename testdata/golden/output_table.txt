@@ -1,0 +1,3 @@
+ID  NAME    STATUS
+1   web-01  Ready
+22  db      Initializing

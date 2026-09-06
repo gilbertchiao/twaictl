@@ -1,0 +1,36 @@
+[
+  {
+    "id": 5,
+    "name": "web-lb",
+    "desc": "",
+    "status": "ACTIVE",
+    "private_net": {"id": 328291, "name": "default_network"},
+    "create_time": "2026-08-28T01:02:03Z",
+    "user": {"id": "1", "username": "u", "display_name": "U", "email": "u@x"},
+    "listeners": [
+      {
+        "name": "web-lb-listener",
+        "status": "ACTIVE",
+        "protocol": "HTTP",
+        "protocol_port": 80,
+        "pool": 11,
+        "sni_container_refs": [],
+        "default_tls_container_ref": 0
+      }
+    ],
+    "pools": [
+      {"id": 11, "name": "web-lb-pool", "status": "ACTIVE", "protocol": "HTTP", "method": "ROUND_ROBIN"}
+    ]
+  },
+  {
+    "id": 6,
+    "name": "api-lb",
+    "desc": "",
+    "status": "BUILD",
+    "private_net": {"id": 328291, "name": "default_network"},
+    "create_time": "2026-08-28T02:00:00Z",
+    "user": {"id": "1", "username": "u", "display_name": "U", "email": "u@x"},
+    "listeners": [],
+    "pools": []
+  }
+]

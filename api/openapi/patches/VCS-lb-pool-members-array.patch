@@ -1,0 +1,17 @@
+# PoolDetailSerializer.members 標為單一 PoolMemberSerializer，但 request 端
+# PoolData.members 為 array、欄位名為複數，語意為 pool 內多個 member；改為
+# array 以免真實回應解析失敗。尚未以真實 LB 驗證（2026-08-28，project 無 LB），
+# 見 docs/api-notes.md A29。
+--- a/api/openapi/VCS.yaml
++++ b/api/openapi/VCS.yaml
+@@ -4055,7 +4055,9 @@ components:
+           monitor:
+             $ref: '#/components/schemas/LBHealthMonitorSerializer'
+           members:
+-            $ref: '#/components/schemas/PoolMemberSerializer'
++            type: array
++            items:
++              $ref: '#/components/schemas/PoolMemberSerializer'
+     LBHealthMonitorSerializer:
+       type: object
+       properties:

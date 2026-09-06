@@ -1,0 +1,18 @@
+{
+  "id": 328291,
+  "name": "default_network",
+  "project": 101,
+  "cidr": "192.168.211.0/24",
+  "with_router": true,
+  "ip_version": 4,
+  "gateway": "192.168.211.254",
+  "nameservers": ["101.101.101.101", "1.1.1.1"],
+  "status": "ACTIVE",
+  "status_reason": "",
+  "user": {"username": "alice", "display_name": "Alice", "email": "alice@example.com", "id": "u-1"},
+  "create_time": "2023-01-26T13:27:38Z",
+  "dns_domain": "",
+  "ext_net": "(chf) ext_vlan4070",
+  "platform": "openstack-taichung-default-2",
+  "firewall": {"id": 3, "name": "fw-default"}
+}

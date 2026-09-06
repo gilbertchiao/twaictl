@@ -1,0 +1,3 @@
+ID   NAME     METER         SCALE UP  SCALE DOWN  MAX SIZE
+701  web-asp  cpu_util      80        20          5
+702  mem-asp  memory.usage  90        30          3

@@ -1,0 +1,22 @@
+[
+  {
+    "id": 11,
+    "name": "Ubuntu 22.04",
+    "category": "os",
+    "state": "Ready",
+    "desc": "Ubuntu 22.04 LTS",
+    "is_public": true,
+    "labels": ["linux"],
+    "create_time": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": 12,
+    "name": "CentOS 7",
+    "category": "os",
+    "state": "Ready",
+    "desc": "CentOS 7",
+    "is_public": true,
+    "labels": ["linux"],
+    "create_time": "2026-08-27T00:00:00Z"
+  }
+]

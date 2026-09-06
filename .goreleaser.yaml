@@ -1,0 +1,64 @@
+# goreleaser v2：tag 觸發，交叉編譯 linux/darwin/windows × amd64/arm64
+version: 2
+
+project_name: twaictl
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - main: ./cmd/twaictl
+    binary: twaictl
+    env:
+      - CGO_ENABLED=0
+    goos: [linux, darwin, windows]
+    goarch: [amd64, arm64]
+    ldflags:
+      - -s -w
+      - -X github.com/gilbertchiao/twaictl/internal/version.Version={{ .Version }}
+      - -X github.com/gilbertchiao/twaictl/internal/version.Commit={{ .ShortCommit }}
+      - -X github.com/gilbertchiao/twaictl/internal/version.Date={{ .Date }}
+
+archives:
+  - formats: [tar.gz]
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+    files:
+      - LICENSE
+      - README.md
+
+# Homebrew tap：需要在 repo secrets 設定 HOMEBREW_TAP_GITHUB_TOKEN（對 gilbertchiao/homebrew-tap 有 contents:write 權限）
+brews:
+  - repository:
+      owner: gilbertchiao
+      name: homebrew-tap
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+    directory: Formula
+    homepage: https://github.com/gilbertchiao/twaictl
+    description: 台智雲 TWCC 平台的非官方命令列工具（Unofficial CLI for Taiwan AI Cloud TWCC）
+    license: Apache-2.0
+    install: |
+      bin.install "twaictl"
+      generate_completions_from_executable(bin/"twaictl", "completion")
+    test: |
+      system "#{bin}/twaictl", "version"
+
+nfpms:
+  - formats: [deb]
+    maintainer: Gilbert Chiao <gilbertchiao@gmail.com>
+    description: 台智雲 TWCC 平台的非官方命令列工具
+    homepage: https://github.com/gilbertchiao/twaictl
+    license: Apache-2.0
+
+checksum:
+  name_template: checksums.txt
+
+changelog:
+  use: git
+  filters:
+    exclude:
+      - "^docs:"
+      - "^chore:"

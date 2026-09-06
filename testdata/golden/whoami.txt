@@ -1,0 +1,7 @@
+API version:  v5
+Profile:      default
+Project:      ENT1 (id 101)
+
+ID   NAME  PLATFORM                      TRANSPARENT
+101  ENT1  openstack-taichung-default-2  no
+202  GOV2  openstack-taichung-default-2  yes

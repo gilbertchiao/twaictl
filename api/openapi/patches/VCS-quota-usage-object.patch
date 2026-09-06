@@ -1,0 +1,127 @@
+# 原因：真實 API 實測（2026-08-27，read-only 呼叫 GET /project_quotas/?project=、
+# GET /projects/{id}/user_quotas/）發現：
+#
+# 1. `ProjectQuotaSerializer`、`UserQuotaSerializer` 的 `cpu`/`gpu`/`memory` 真實回應
+#    皆為 `{"usage": <float>, "quota": <float>}` 物件（例如
+#    `{"usage": 24.0, "quota": -1.0}`），但 spec 的 `ProjectQuotaSerializer` 誤標為
+#    純數字（`type: integer, format: int64`），`UserQuotaSerializer` 雖然是巢狀物件，
+#    但內部 `usage`/`quota` 誤標為 `integer/int64`，遇到浮點值（如 `24.0`）或
+#    `-1.0`（代表無上限）會 unmarshal 失敗。
+# 2. 真實回應沒有 spec 宣告的 `ipvs_port`、`floatingip` 欄位，多了 `floating_ip`、
+#    `static_ip`（同樣是 `{usage, quota}` 物件）。
+#
+# 修法：新增共用 schema `QuotaUsageSerializer {usage: number/double,
+# quota: number/double}`；`ProjectQuotaSerializer`／`UserQuotaSerializer` 的
+# `cpu`/`gpu`/`memory` 改為 `$ref QuotaUsageSerializer`（required 不變），移除
+# `ipvs_port`/`floatingip`，新增選填的 `floating_ip`/`static_ip`（同樣 `$ref`）。
+# 生成型別：`ProjectQuotaSerializer{Cpu, Gpu, Memory QuotaUsageSerializer;
+# FloatingIp, StaticIp *QuotaUsageSerializer}`，`UserQuotaSerializer` 同樣。
+#
+# 詳見 docs/api-notes.md「已確認」A19。
+--- a/api/openapi/VCS.yaml
++++ b/api/openapi/VCS.yaml
+@@ -4253,6 +4253,18 @@
+           format: date-time
+         user:
+           $ref: '#/components/schemas/UserSerializer'
++    QuotaUsageSerializer:
++      required:
++      - quota
++      - usage
++      type: object
++      properties:
++        usage:
++          type: number
++          format: double
++        quota:
++          type: number
++          format: double
+     ProjectQuotaSerializer:
+       required:
+       - cpu
+@@ -4264,20 +4276,15 @@
+         project:
+           $ref: '#/components/schemas/GroupSerializer'
+         gpu:
+-          type: integer
+-          format: int64
++          $ref: '#/components/schemas/QuotaUsageSerializer'
+         cpu:
+-          type: integer
+-          format: int64
++          $ref: '#/components/schemas/QuotaUsageSerializer'
+         memory:
+-          type: integer
+-          format: int64
+-        ipvs_port:
+-          type: integer
+-          format: int64
+-        floatingip:
+-          type: integer
+-          format: int32
++          $ref: '#/components/schemas/QuotaUsageSerializer'
++        floating_ip:
++          $ref: '#/components/schemas/QuotaUsageSerializer'
++        static_ip:
++          $ref: '#/components/schemas/QuotaUsageSerializer'
+     GroupBusinessNetworkSerializer:
+       type: object
+       properties:
+@@ -4449,50 +4456,15 @@
+         user:
+           $ref: '#/components/schemas/UserSerializer'
+         gpu:
+-          type: object
+-          properties:
+-            usage:
+-              type: integer
+-              format: int64
+-            quota:
+-              type: integer
+-              format: int64
++          $ref: '#/components/schemas/QuotaUsageSerializer'
+         cpu:
+-          type: object
+-          properties:
+-            usage:
+-              type: integer
+-              format: int64
+-            quota:
+-              type: integer
+-              format: int64
++          $ref: '#/components/schemas/QuotaUsageSerializer'
+         memory:
+-          type: object
+-          properties:
+-            usage:
+-              type: integer
+-              format: int64
+-            quota:
+-              type: integer
+-              format: int64
+-        ipvs_port:
+-          type: object
+-          properties:
+-            usage:
+-              type: integer
+-              format: int64
+-            quota:
+-              type: integer
+-              format: int64
+-        floatingip:
+-          type: object
+-          properties:
+-            usage:
+-              type: integer
+-              format: int64
+-            quota:
+-              type: integer
+-              format: int64
++          $ref: '#/components/schemas/QuotaUsageSerializer'
++        floating_ip:
++          $ref: '#/components/schemas/QuotaUsageSerializer'
++        static_ip:
++          $ref: '#/components/schemas/QuotaUsageSerializer'
+     AZSerializer:
+       required:
+       - create_time

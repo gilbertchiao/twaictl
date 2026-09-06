@@ -1,0 +1,3 @@
+Public access key:  AKIAPUBLIC
+Public secret key:  ***
+Private keys:       default(AKIAPRIV)

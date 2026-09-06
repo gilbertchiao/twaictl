@@ -1,0 +1,6 @@
+RESOURCE     USAGE  QUOTA
+cpu          24     unlimited
+gpu          0      80
+memory (MB)  83968  unlimited
+floating_ip  5      10
+static_ip    4      10

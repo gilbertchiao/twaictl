@@ -1,0 +1,13 @@
+profile: default
+config_path: <path>
+api_key: '***'
+project_code: GOV999
+apigateway: https://apigateway.twcc.ai
+api_hosts:
+    vcs: openstack-taichung-default-2
+    cos: ceph-taichung-default
+    common: goc
+cos:
+    endpoint: https://cos.twcc.ai
+    access_key: AKIA
+    secret_key: '***'

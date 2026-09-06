@@ -1,0 +1,22 @@
+# 原因：真實 API 實測（2026-08-27，read-only 呼叫 GET /ips/?project=）發現
+# `occupied_resource.id` 的真實值為字串（例如 `"328291"`），但 spec 的
+# `OccupiedResourceSerializer.id` 誤標 `type: integer, format: int64`，會導致
+# `json.Unmarshal` 失敗，`vcs ip ls` 整個指令壞掉。
+#
+# 修法：改為 `type: string`；生成型別會變成 `*string`。
+#
+# 詳見 docs/api-notes.md「已確認」A20。
+--- a/api/openapi/VCS.yaml
++++ b/api/openapi/VCS.yaml
+@@ -3017,8 +3017,9 @@
+       type: object
+       properties:
+         id:
+-          type: integer
+-          format: int64
++          type: string
++          description: 實測（2026-08-27）為字串（例如 "328291"），非 spec 原標的
++            `integer/int64`。
+         type:
+           type: string
+     ProjectFieldSerializer:

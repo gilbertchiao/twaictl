@@ -1,0 +1,13 @@
+ID:                 3658462
+Hostname:           web-01-vm
+Site:               7
+Status:             ACTIVE
+Flavor:             v.xsuper
+Image:              img1base
+OS:                 Linux
+OS version:         Ubuntu 22.04
+Keypair:            k1
+Availability zone:  nova
+FQDN:               
+Private nets:       vn2ylc(10.2.0.6)
+Public nets:        public(203.0.113.20)

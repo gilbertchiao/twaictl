@@ -1,0 +1,12 @@
+[
+  {
+    "id": "c23dd442-bf00-470e-9803-8f4a11e61e2d",
+    "name": "sg0common",
+    "platform": "openstack-taichung-default-2",
+    "security_group_rules": [
+      {"id": "r-1", "direction": "ingress", "ethertype": "IPv4", "protocol": "tcp", "port_range_min": 22, "port_range_max": 22, "remote_ip_prefix": "0.0.0.0/0"},
+      {"id": "r-2", "direction": "egress", "ethertype": "IPv4", "protocol": "tcp", "port_range_min": 0, "port_range_max": 0, "remote_ip_prefix": "0.0.0.0/0"},
+      {"id": "r-3", "direction": "ingress", "ethertype": "IPv4", "protocol": "udp", "port_range_min": 1000, "port_range_max": 2000, "remote_ip_prefix": "10.0.0.0/8"}
+    ]
+  }
+]

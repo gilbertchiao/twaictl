@@ -1,0 +1,5 @@
+Name:         mykey
+Fingerprint:  aa:bb:cc:dd:ee:ff
+Created:      2023-01-24 00:17:14
+User:         alice
+Public key:   ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC mykey

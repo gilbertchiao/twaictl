@@ -1,0 +1,28 @@
+# golangci-lint v2 設定。生成程式碼 (internal/gen) 排除。
+version: "2"
+
+run:
+  timeout: 5m
+
+linters:
+  default: standard        # errcheck, govet, ineffassign, staticcheck, unused
+  enable:
+    - revive
+    - misspell
+  settings:
+    revive:
+      rules:
+        - name: exported
+          arguments: ["checkPrivateReceivers", "disableStutteringCheck"]
+  exclusions:
+    generated: lax
+    paths:
+      - internal/gen
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  exclusions:
+    paths:
+      - internal/gen

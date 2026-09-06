@@ -1,0 +1,31 @@
+[
+  {
+    "id": 328291,
+    "name": "default_network",
+    "project": 101,
+    "cidr": "192.168.211.0/24",
+    "with_router": true,
+    "ip_version": 4,
+    "gateway": "192.168.211.254",
+    "nameservers": ["101.101.101.101", "1.1.1.1"],
+    "status": "ACTIVE",
+    "user": {"username": "alice", "display_name": "Alice", "email": "alice@example.com", "id": "u-1"},
+    "create_time": "2023-01-26T13:27:38Z",
+    "dns_domain": "",
+    "ext_net": "(chf) ext_vlan4070"
+  },
+  {
+    "id": 328292,
+    "name": "backend",
+    "project": 101,
+    "cidr": "10.0.0.0/24",
+    "with_router": false,
+    "ip_version": 4,
+    "gateway": "10.0.0.254",
+    "nameservers": [],
+    "status": "ACTIVE",
+    "create_time": "2026-08-01T00:00:00Z",
+    "dns_domain": "",
+    "ext_net": ""
+  }
+]

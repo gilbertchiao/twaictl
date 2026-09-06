@@ -1,0 +1,21 @@
+# 真實環境（2026-08-28 寫入型實測，project ENT000000）：GET /loadbalancers/reports/
+# 的 detail.LB[].user 實際回應為雙層巢狀
+# {"user": {"user": {"username","display_name","id","email"}}}，但 spec
+# ReportDetailObject.user 只標單層 $ref UserSerializer；依 spec 解析會讓
+# vcs lb report 的 USER 欄位永遠空白（外層物件沒有 username/display_name 等欄位）。
+# 改為巢狀 object（內層 user 才是 UserSerializer），CLI 攤平時取 user.user。
+# 詳見 docs/api-notes.md A29。
+--- a/api/openapi/VCS.yaml
++++ b/api/openapi/VCS.yaml
+@@ -3674,7 +3674,10 @@
+           type: string
+           format: date-time
+         user:
+-          $ref: '#/components/schemas/UserSerializer'
++          type: object
++          properties:
++            user:
++              $ref: '#/components/schemas/UserSerializer'
+     NetworkPostSerializer:
+       type: object
+       properties:

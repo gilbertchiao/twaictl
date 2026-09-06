@@ -1,0 +1,20 @@
+# 真實環境（2026-08-28 read-only 實測，project ENT000000）：spec 的 ASP detail path
+# `/auto_scaling_policies/{id}` 缺尾斜線（其餘 detail path 如 /secrets/{id}/、
+# /loadbalancers/{id}/ 皆有）；照 spec 呼叫 GET /auto_scaling_policies/1 會回 301、
+# Location 指向內部 host（https://192.0.2.10/.../auto_scaling_policies/1/），
+# 型別化 client 不跟隨重導向（A26）因此一律失敗；補上尾斜線後
+# GET /auto_scaling_policies/1/ 正常回 404 `Auto scaling policy 1 not found`。
+# 詳見 docs/api-notes.md A27。
+diff --git a/api/openapi/VCS.yaml b/api/openapi/VCS.yaml
+index 346f9d0..c6119c6 100644
+--- a/api/openapi/VCS.yaml
++++ b/api/openapi/VCS.yaml
+@@ -2531,7 +2531,7 @@ paths:
+             application/json:
+               schema:
+                 $ref: '#/components/schemas/AutoScalingPolicySerializer'
+-  /auto_scaling_policies/{auto_scaling_policy_id}:
++  /auto_scaling_policies/{auto_scaling_policy_id}/:
+     get:
+       tags:
+         - auto scaling policy

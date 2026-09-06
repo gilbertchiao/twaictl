@@ -1,0 +1,2 @@
+twaictl v0.0.1-test (commit abc1234, built 2026-08-26T00:00:00Z, go1.26.0 linux/amd64)
+OpenAPI: VCS 1.5.4, Ceph 1.1.0, Common 1.2.1

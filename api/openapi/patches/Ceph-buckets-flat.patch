@@ -1,0 +1,70 @@
+# 原因：真實 API 實測（2026-08-27，read-only 呼叫 GET /projects/{id}/buckets/ 與
+# GET /projects/{id}/buckets_util/）發現回應是扁平結構，而非 spec 宣告的 {public, private}：
+#   /buckets/      → {"key_name": "...", "buckets": [{"bucket_name", "last_modified_time",
+#                     "bucket_used_space", "num_objects"}]}
+#   /buckets_util/ → {"total_used_space": ..., "total_objects": ..., "key_name": "..."}
+# 依 spec 生成的型別解析真實回應會得到全零值。此 patch 把兩個 serializer 改為實際形狀。
+# 另外 BucketSerializer.last_modified_time 的實際字串格式未確認（同專案的 keypair
+# create_time 曾出現無時區字串），改為純 string 交由 output.FormatTimeString 顯示。
+# 詳見 docs/api-notes.md A16。
+--- a/api/openapi/Ceph.yaml
++++ b/api/openapi/Ceph.yaml
+@@ -314,7 +314,6 @@
+           type: string
+         last_modified_time:
+           type: string
+-          format: date-time
+         bucket_used_space:
+           type: integer
+         num_objects:
+@@ -333,18 +332,16 @@
+             $ref: '#/components/schemas/BucketSerializer'
+     ProjectBucketSerializer:
+       required:
+-      - private
+-      - public
++      - key_name
++      - buckets
+       type: object
+       properties:
+-        public:
++        key_name:
++          type: string
++        buckets:
+           type: array
+           items:
+             $ref: '#/components/schemas/BucketSerializer'
+-        private:
+-          type: array
+-          items:
+-            $ref: '#/components/schemas/PrivateKeyBucketsSerializer'
+     BucketUtilSerializer:
+       required:
+       - total_objects
+@@ -359,16 +356,18 @@
+           type: integer
+     ProjectBucketUtilSerializer:
+       required:
+-      - private
+-      - public
++      - total_objects
++      - total_used_space
+       type: object
+       properties:
+-        public:
+-          $ref: '#/components/schemas/BucketUtilSerializer'
+-        private:
+-          type: array
+-          items:
+-            $ref: '#/components/schemas/BucketUtilSerializer'
++        key_name:
++          type: string
++        total_used_space:
++          type: integer
++          format: int64
++        total_objects:
++          type: integer
++          format: int64
+   parameters:
+     ProjectInQueryParam:
+       name: project

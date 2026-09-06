@@ -1,0 +1,8 @@
+# oapi-codegen 設定：Common
+package: common
+generate:
+  models: true
+  client: true
+output: internal/gen/common/common.gen.go
+output-options:
+  skip-prune: false

@@ -1,0 +1,1 @@
+{"key_name": "backup", "buckets": [{"bucket_name": "photos", "last_modified_time": "2026-08-20T10:00:00", "bucket_used_space": 4294967296, "num_objects": 1000}, {"bucket_name": "logs", "last_modified_time": "2026-08-27T01:02:03Z", "bucket_used_space": 1073741824, "num_objects": 234}]}

@@ -1,0 +1,9 @@
+{
+  "id": 9,
+  "name": "snap-1",
+  "platform": "openstack-taichung-default-2",
+  "is_public": false,
+  "create_time": "2026-08-27T01:02:03Z",
+  "disk_format": "qcow2",
+  "project": 101
+}

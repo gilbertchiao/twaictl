@@ -1,0 +1,5 @@
+[
+  {"event_time": "2026-08-27T01:00:00Z", "resource_name": "web-01", "status": "CREATE_START", "status_reason": ""},
+  {"event_time": "2026-08-27T01:05:00Z", "resource_name": "web-01", "status": "CREATE_COMPLETE", "status_reason": ""},
+  {"event_time": "2026-08-27T02:00:00Z", "resource_name": "web-01-vm", "status": "STOP_COMPLETE", "status_reason": "user requested"}
+]

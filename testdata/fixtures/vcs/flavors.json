@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "v.2xsmall",
+    "platform": "openstack-taichung-default-2",
+    "is_public": true,
+    "resource": {"cpu": 2, "memory": 4096, "disk": 40, "gpu": 0},
+    "metadata": {"gpu_type": null}
+  },
+  {
+    "id": 2,
+    "name": "v.gpu.small",
+    "platform": "openstack-taichung-default-2",
+    "is_public": false,
+    "resource": {"cpu": 8, "memory": 32768, "disk": 100, "gpu": 0.25},
+    "metadata": {"gpu_type": "V100"}
+  }
+]

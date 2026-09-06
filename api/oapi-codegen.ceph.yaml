@@ -1,0 +1,8 @@
+# oapi-codegen 設定：Ceph
+package: ceph
+generate:
+  models: true
+  client: true
+output: internal/gen/ceph/ceph.gen.go
+output-options:
+  skip-prune: false

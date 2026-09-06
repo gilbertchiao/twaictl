@@ -1,0 +1,13 @@
+ID:                  5
+Name:                web-lb
+Status:              ACTIVE
+Status reason:       
+VIP:                 10.0.0.50
+Network:             default_network
+Listeners:           web-lb-listener:HTTP/80
+Pools:               web-lb-pool(HTTP,ROUND_ROBIN) members=[10.0.0.11:80(ACTIVE), 10.0.0.12:80(ERROR)] monitor=[HTTP GET / expect 200 delay=5 timeout=3 retries=3]; web-lb-pool2(TCP,SOURCE_IP) members=[] monitor=[]
+Total connections:   120
+Active connections:  3
+Created:             2026-08-28 09:02:03
+Desc:                
+User:                u

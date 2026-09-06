@@ -1,0 +1,4 @@
+[
+  {"id": 301, "name": "web-fw", "project": 101, "status": "ACTIVE", "platform": "openstack-taichung-default-2", "desc": "web tier", "user": {"id": "1", "username": "alice", "display_name": "Alice", "email": "alice@example.com"}},
+  {"id": 302, "name": "db-fw", "project": 101, "status": "BUILD", "platform": "openstack-taichung-default-2", "desc": "", "user": {"id": "1", "username": "alice", "display_name": "Alice", "email": "alice@example.com"}}
+]

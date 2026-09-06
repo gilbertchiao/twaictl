@@ -1,0 +1,21 @@
+# 真實環境（2026-08-29 寫入型實測，project ENT000000 / 60000）：POST
+# /auto_scaling_policies/ 的 requestBody 帶 spec 標的 `desc` 欄位（例如
+# {"desc": "twaictl test", ...}）會被伺服器**靜默忽略**，成功建立但回應
+# `description: ""`；改帶 `description`（例如 {"description": "via description"}）
+# 才會生效，回應 `description: "via description"`。spec 的 request 標
+# `desc`、response（AutoScalingPolicySerializer）標 `description`，原以為只是
+# request／response 欄位命名不一致（見 docs/api-notes.md A34），實測後確認
+# spec 的 request 欄位名本身是筆誤，改為與 response 一致的 `description`。
+diff --git a/api/openapi/VCS.yaml b/api/openapi/VCS.yaml
+index c6119c6..97cfa53 100644
+--- a/api/openapi/VCS.yaml
++++ b/api/openapi/VCS.yaml
+@@ -2521,7 +2521,7 @@ paths:
+                   type: integer
+                 project:
+                   type: integer
+-                desc:
++                description:
+                   type: string
+                   example: This ASP is for... (optional)
+       responses:

@@ -1,0 +1,16 @@
+{
+  "id": 1436398,
+  "name": "data-01",
+  "size": 500,
+  "volume_type": "hdd",
+  "volume_uuid": "97738afd-283d-41d5-a1a4-42a84b56b3c8",
+  "status": "in-use",
+  "is_attached": true,
+  "is_bootable": false,
+  "attached_host": {"hostname": "web-01-vm", "id": 3658462},
+  "mountpoint": ["/dev/vdb"],
+  "platform": "openstack-taichung-default-2",
+  "project": {"id": 101, "name": "ENT1"},
+  "user": {"username": "alice", "display_name": "Alice", "email": "alice@example.com", "id": "u-1"},
+  "create_time": "2023-02-06T00:53:47Z"
+}

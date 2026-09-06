@@ -1,0 +1,25 @@
+# 原因：真實 API 實測（2026-08-27，read-only 呼叫 GET /volumes/?project=）發現
+# 回應每筆多了 spec 未定義的 `volume_type`（例如 `"hdd"`）與 `volume_uuid`
+# （例如 `"97738afd-..."`）欄位。spec 未定義的欄位會被生成碼忽略，不影響現有
+# 命令，但 Phase 2b 的 `vcs volume ls`／`get` 需要顯示這兩個欄位。
+#
+# 修法：`VolumeSerializer.properties` 新增 `volume_type: string`、
+# `volume_uuid: string`（皆選填，不加進 required）；生成型別會變成
+# `VolumeType *string`、`VolumeUuid *string`。
+#
+# 詳見 docs/api-notes.md「已確認」A21。
+--- a/api/openapi/VCS.yaml
++++ b/api/openapi/VCS.yaml
+@@ -3080,6 +3080,12 @@
+           format: int64
+         status:
+           type: string
++        volume_type:
++          type: string
++          description: 實測（2026-08-27）新增欄位，spec 原未定義（例如 "hdd"）。
++        volume_uuid:
++          type: string
++          description: 實測（2026-08-27）新增欄位，spec 原未定義。
+     AttachedHostSerializer:
+       required:
+       - hostname

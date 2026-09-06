@@ -1,0 +1,22 @@
+[
+  {
+    "id": 21,
+    "name": "Ubuntu 22.04",
+    "platform": "openstack-taichung-default-2",
+    "is_public": true,
+    "size": 2147483648,
+    "status": "active",
+    "create_time": "2026-08-27T00:00:00Z",
+    "server": {"hostname": "img-server-1", "id": 1}
+  },
+  {
+    "id": 22,
+    "name": "CentOS 7",
+    "platform": "openstack-taichung-default-2",
+    "is_public": false,
+    "size": 1073741824,
+    "status": "active",
+    "create_time": "2026-08-27T00:10:00Z",
+    "server": {"hostname": "img-server-2", "id": 2}
+  }
+]

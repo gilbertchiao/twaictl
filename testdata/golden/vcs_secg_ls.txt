@@ -1,0 +1,4 @@
+SECURITY GROUP                        RULE ID  DIRECTION  PROTOCOL  PORTS      REMOTE      ETHERTYPE
+c23dd442-bf00-470e-9803-8f4a11e61e2d  r-1      ingress    tcp       22         0.0.0.0/0   IPv4
+c23dd442-bf00-470e-9803-8f4a11e61e2d  r-2      egress     tcp       any        0.0.0.0/0   IPv4
+c23dd442-bf00-470e-9803-8f4a11e61e2d  r-3      ingress    udp       1000-2000  10.0.0.0/8  IPv4

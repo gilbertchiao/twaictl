@@ -1,0 +1,4 @@
+[
+  {"id": 501, "name": "allow-ssh", "project": 101, "platform": "openstack-taichung-default-2", "ip_version": 4, "protocol": "tcp", "action": "allow", "source_ip_address": "0.0.0.0/0", "source_port": "", "destination_ip_address": "192.168.0.0/24", "destination_port": "22"},
+  {"id": 502, "name": "deny-all", "project": 101, "platform": "openstack-taichung-default-2", "ip_version": 4, "protocol": "tcp", "action": "deny", "source_ip_address": "0.0.0.0/0", "source_port": "", "destination_ip_address": "0.0.0.0/0", "destination_port": "1:65535"}
+]

@@ -1,0 +1,19 @@
+{
+  "id": 21,
+  "name": "Ubuntu 22.04",
+  "platform": "openstack-taichung-default-2",
+  "ref_img_id": "ref-21",
+  "is_enabled": true,
+  "is_deleted": false,
+  "status": "active",
+  "status_reason": "",
+  "is_public": false,
+  "create_time": "2026-08-27T00:00:00Z",
+  "delete_time": "0001-01-01T00:00:00Z",
+  "desc": "web base",
+  "os": "Linux",
+  "os_version": "Ubuntu 22.04",
+  "server": {"hostname": "web-01-vm", "id": 3658462},
+  "size": 2147483648,
+  "user": {"username": "alice", "display_name": "Alice", "email": "alice@example.com", "id": "u-1"}
+}

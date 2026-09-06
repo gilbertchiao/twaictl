@@ -1,0 +1,36 @@
+[
+  {
+    "id": 3658462,
+    "site": 7,
+    "hostname": "web-01-vm",
+    "status": "ACTIVE",
+    "flavor": "v.xsuper",
+    "image": "img1base",
+    "keypair": "k1",
+    "os": "Linux",
+    "os_version": "Ubuntu 22.04",
+    "availability_zone": "nova",
+    "fqdn": "",
+    "platform": "openstack-taichung-default-2",
+    "private_nets": [{"ip": "10.2.0.6", "name": "vn2ylc", "id": 329302}],
+    "public_nets": [],
+    "auto_scaling_policy": {}
+  },
+  {
+    "id": 3658463,
+    "site": 8,
+    "hostname": "db-01-vm",
+    "status": "SHUTOFF",
+    "flavor": "v.xsuper",
+    "image": "img1base",
+    "keypair": "k1",
+    "os": "Linux",
+    "os_version": "Ubuntu 22.04",
+    "availability_zone": "nova",
+    "fqdn": "",
+    "platform": "openstack-taichung-default-2",
+    "private_nets": [{"ip": "10.2.0.7", "name": "vn2ylc", "id": 329303}],
+    "public_nets": [],
+    "auto_scaling_policy": {}
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "/dev/vda",
+    "utils": [
+      {"disk_write_bytes_rate": "1317.548967985", "timestamp": "2026-08-27T12:40:00Z", "unit": "B/s"},
+      {"disk_write_bytes_rate": "1348.103634877", "timestamp": "2026-08-27T12:45:00Z", "unit": "B/s"}
+    ]
+  },
+  {
+    "name": "all",
+    "utils": [
+      {"disk_write_bytes_rate": "1317.548967985", "timestamp": "2026-08-27T12:40:00Z", "unit": "B/s"},
+      {"disk_write_bytes_rate": "1348.103634877", "timestamp": "2026-08-27T12:45:00Z", "unit": "B/s"}
+    ]
+  }
+]

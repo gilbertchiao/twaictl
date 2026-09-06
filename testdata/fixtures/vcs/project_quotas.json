@@ -1,0 +1,10 @@
+[
+  {
+    "project": {"id": 101, "name": "ENT1", "platform": "openstack-taichung-default-2", "desc": "", "matchLabels": [], "transparent_mode": false},
+    "cpu": {"usage": 24.0, "quota": -1.0},
+    "gpu": {"usage": 0.0, "quota": 80.0},
+    "memory": {"usage": 83968.0, "quota": -1.0},
+    "floating_ip": {"usage": 5.0, "quota": 10.0},
+    "static_ip": {"usage": 4.0, "quota": 10.0}
+  }
+]

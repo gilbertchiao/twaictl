@@ -1,0 +1,3 @@
+ID   NAME       PROTOCOL  ACTION  SOURCE     DESTINATION
+501  allow-ssh  tcp       allow   0.0.0.0/0  192.168.0.0/24 [22]
+502  deny-all   tcp       deny    0.0.0.0/0  0.0.0.0/0 [1-65535]

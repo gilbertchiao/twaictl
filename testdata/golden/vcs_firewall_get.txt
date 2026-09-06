@@ -1,0 +1,10 @@
+ID:             301
+Name:           web-fw
+Status:         ACTIVE
+Status reason:  
+Desc:           web tier
+Rules:          allow-ssh(501), deny-all(502)
+Networks:       default_network(328291)
+Created:        2026-08-28 09:02:03
+Project:        101
+User:           alice

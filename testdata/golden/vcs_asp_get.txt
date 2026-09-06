@@ -1,0 +1,9 @@
+ID:                    701
+Name:                  web-asp
+Meter:                 cpu_util
+Scale up threshold:    80
+Scale down threshold:  20
+Max size:              5
+Desc:                  scale web tier
+Project:               101
+User:                  alice

@@ -1,0 +1,27 @@
+# 原因：真實 API 實測（2026-08-27，read-only 呼叫 GET /flavors/）發現
+# FlavorSerializer.resource.gpu 的真實值包含浮點數（0、0.25、0.5、1、2、4、8），
+# 但 spec 宣告 `type: integer, format: int64`，導致 oapi-codegen 生成
+# `Gpu *int64`，實際回應解析時因 "0.25" 無法 unmarshal 進 int64 而整個
+# `vcs flavor ls` 失敗（`json: cannot unmarshal number 0.25 into Go struct
+# field ... of type int64`）。
+#
+# 註：同檔案的 FlavorDetailSerializer.resource.gpu 本來就宣告為 `number`，
+# 兩者不一致，此 patch 讓 FlavorSerializer 與 FlavorDetailSerializer 一致
+# 且符合實測。
+#
+# 修法：改為 `type: number, format: double`，生成型別會變成 `*float64`。
+#
+# 詳見 docs/api-notes.md「Phase 1a 實測待確認」→「已確認」。
+--- a/api/openapi/VCS.yaml
++++ b/api/openapi/VCS.yaml
+@@ -2702,8 +2702,8 @@
+               type: integer
+               format: int64
+             gpu:
+-              type: integer
+-              format: int64
++              type: number
++              format: double
+             nic:
+               type: integer
+               format: int64

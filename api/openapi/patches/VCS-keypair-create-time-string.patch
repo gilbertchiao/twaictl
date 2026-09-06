@@ -1,0 +1,25 @@
+# 原因：真實 API 實測（2026-08-27，read-only 呼叫 GET /keypairs/{key_name}/）
+# 發現回應的 create_time 值為無時區的本地時間字串（例如 "2023-01-23T16:17:14"），
+# 不含時區資訊，不符合 RFC3339；但 spec 宣告 `format: date-time`，導致
+# oapi-codegen 生成 `time.Time`，實際回應解析時因缺少時區資訊而整個
+# `vcs keypair get <name>` 失敗（`parsing time "2023-01-23T16:17:14" as
+# "2006-01-02T15:04:05Z07:00": cannot parse ""...`）。
+#
+# 修法：移除 `format: date-time`，改為純 `type: string` 並加註說明；生成
+# 型別會變成 `*string`。由 `internal/twai/vcs.KeypairDetail.CreateTime`
+# 手動改為 `*string`，並由 `internal/output.FormatTimeString` 依序嘗試
+# RFC3339 / 無時區格式（視為 UTC）解析後轉台北時區顯示，無法解析時原樣顯示。
+#
+# 詳見 docs/api-notes.md「Phase 1a 實測待確認」→「已確認」。
+--- a/api/openapi/VCS.yaml
++++ b/api/openapi/VCS.yaml
+@@ -517,7 +517,8 @@
+                     type: string
+                   create_time:
+                     type: string
+-                    format: date-time
++                    description: 實測（2026-08-27）為無時區的本地時間字串（例如
++                      "2023-01-23T16:17:14"），非 RFC3339；視為 UTC 處理。
+     delete:
+       tags:
+       - keypair

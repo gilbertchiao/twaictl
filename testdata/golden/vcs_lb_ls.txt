@@ -1,0 +1,3 @@
+ID  NAME    STATUS  NETWORK          LISTENERS                POOLS                          CREATED
+5   web-lb  ACTIVE  default_network  web-lb-listener:HTTP/80  web-lb-pool(HTTP,ROUND_ROBIN)  2026-08-28 09:02:03
+6   api-lb  BUILD   default_network                                                          2026-08-28 10:00:00

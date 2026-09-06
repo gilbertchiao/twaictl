@@ -1,0 +1,14 @@
+pools:
+  - name: spec-pool
+    protocol: HTTP
+    method: ROUND_ROBIN
+    members:
+      - ip: 10.0.1.1
+        port: 8080
+      - ip: 10.0.1.2
+        port: 8080
+listeners:
+  - name: spec-listener
+    pool_name: spec-pool
+    protocol: HTTP
+    protocol_port: 8080

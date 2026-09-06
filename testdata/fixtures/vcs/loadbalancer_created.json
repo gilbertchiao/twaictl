@@ -1,0 +1,13 @@
+[
+  {
+    "id": 5,
+    "name": "web-lb",
+    "desc": "",
+    "status": "BUILD",
+    "private_net": {"id": 328291, "name": "default_network"},
+    "create_time": "2026-08-28T01:02:03Z",
+    "user": {"id": "1", "username": "u", "display_name": "U", "email": "u@x"},
+    "listeners": [],
+    "pools": []
+  }
+]

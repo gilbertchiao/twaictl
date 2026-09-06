@@ -1,0 +1,16 @@
+# 真實 API（2026-08-27 寫入型實測）POST /snapshots/、GET /snapshots/ 回應的
+# SnapshotSerializer.volume.id 為數字（volume id，例如 3456071），
+# spec 誤標為 string，導致 json.Unmarshal 失敗、vcs snapshot create/ls/get 整個指令壞掉，
+# 改為 integer/int64。詳見 docs/api-notes.md A25。
+--- a/api/openapi/VCS.yaml
++++ b/api/openapi/VCS.yaml
+@@ -3149,7 +3149,8 @@
+       type: object
+       properties:
+         id:
+-          type: string
++          type: integer
++          format: int64
+         name:
+           type: string
+     ServerSerializer:

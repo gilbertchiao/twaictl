@@ -1,0 +1,28 @@
+{
+  "begin_time": "2026-07-28T02:23:34Z",
+  "end_time": "2026-08-28T02:23:34Z",
+  "projects": [
+    {
+      "name": "ENT1",
+      "detail": {
+        "LB": [
+          {
+            "id": 5,
+            "name": "web-lb",
+            "create_time": "2026-08-01T00:00:00Z",
+            "delete_time": null,
+            "user": {"user": {"id": "1", "username": "u", "display_name": "U", "email": "u@x"}}
+          },
+          {
+            "id": 7,
+            "name": "old-lb",
+            "create_time": "2026-07-01T00:00:00Z",
+            "delete_time": "2026-08-20T00:00:00Z",
+            "user": null
+          }
+        ]
+      },
+      "summery": {"total_lb_num": 2}
+    }
+  ]
+}

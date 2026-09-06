@@ -1,0 +1,11 @@
+ID:          21
+Name:        Ubuntu 22.04
+Status:      active
+OS:          Linux
+OS version:  Ubuntu 22.04
+Size:        2.0 GiB
+Public:      no
+Enabled:     yes
+Server:      web-01-vm
+Created:     2026-08-27 08:00:00
+Desc:        web base

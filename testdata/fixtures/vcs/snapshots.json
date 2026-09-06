@@ -1,0 +1,22 @@
+[
+  {
+    "id": 501,
+    "name": "snap-data-01",
+    "desc": "before upgrade",
+    "status": "available",
+    "platform": "openstack-taichung-default-2",
+    "user": {"username": "alice", "display_name": "Alice", "email": "alice@example.com", "id": "u-1"},
+    "volume": {"id": 1436398, "name": "data-01"},
+    "create_time": "2026-08-20T10:00:00Z"
+  },
+  {
+    "id": 502,
+    "name": "snap-data-02",
+    "desc": "",
+    "status": "creating",
+    "platform": "openstack-taichung-default-2",
+    "user": {"username": "alice", "display_name": "Alice", "email": "alice@example.com", "id": "u-1"},
+    "volume": {"id": 1436398, "name": "data-01"},
+    "create_time": "2026-08-21T10:00:00Z"
+  }
+]
